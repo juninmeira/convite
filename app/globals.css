@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overflow-x: hidden;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Otimizações para mobile */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Scroll suave entre seções */
+section {
+  scroll-snap-align: start;
+  scroll-margin-top: 0;
+}
+
+main {
+  scroll-snap-type: y proximity;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Otimização de performance */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* Animação de explosão radial de confetes - contínua */
+@keyframes confetti-explosion-radial-infinite {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5) rotate(90deg);
+  }
+  50% {
+    top: var(--target-y);
+    left: var(--target-x);
+    transform: translate(-50%, -50%) scale(1) rotate(360deg);
+    opacity: 0.8;
+  }
+  100% {
+    top: var(--target-y);
+    left: var(--target-x);
+    transform: translate(-50%, -50%) scale(0.8) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-confetti-explosion-infinite {
+  animation: confetti-explosion-radial-infinite 3s ease-out infinite;
+}
+
+/* Pétalas de cereja flutuantes (sakura effect) */
+.falling-petal {
+  position: absolute;
+  top: -5rem;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  animation: petal-fall linear infinite;
+}
+
+.petal-rotate {
+  animation: petal-rotate 2s infinite ease-in-out;
+  perspective: 1000px;
+}
+
+.petal-drift {
+  animation: petal-drift 2s infinite alternate ease-in-out;
+  transform-style: preserve-3d;
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(0) scale(var(--petal-scale));
+    opacity: var(--petal-scale);
+  }
+  100% {
+    transform: translateY(150vh) translateX(10vw) scale(var(--petal-scale));
+    opacity: 1;
+  }
+}
+
+@keyframes petal-rotate {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes petal-drift {
+  0% {
+    transform: skewY(10deg) translateX(-100%);
+  }
+  100% {
+    transform: skewY(-10deg) translateX(100%);
+  }
+}
+

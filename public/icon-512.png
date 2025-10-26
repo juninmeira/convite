@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="100" fill="#fff5f7"/>
+  <path d="M256 80 Q245 130, 210 180" stroke="#4a7c59" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M256 80 Q267 130, 305 170" stroke="#4a7c59" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <ellipse cx="262" cy="65" rx="40" ry="18" fill="#86efac" transform="rotate(-20 262 65)"/>
+  <circle cx="210" cy="300" r="90" fill="#f43f5e"/>
+  <circle cx="210" cy="300" r="90" fill="url(#grad1)"/>
+  <ellipse cx="190" cy="275" rx="30" ry="18" fill="white" opacity="0.5" transform="rotate(-30 190 275)"/>
+  <circle cx="315" cy="280" r="85" fill="#f43f5e"/>
+  <circle cx="315" cy="280" r="85" fill="url(#grad2)"/>
+  <ellipse cx="295" cy="258" rx="28" ry="16" fill="white" opacity="0.5" transform="rotate(-30 295 258)"/>
+  <defs>
+    <radialGradient id="grad1">
+      <stop offset="0%" stop-color="#fda4af"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </radialGradient>
+    <radialGradient id="grad2">
+      <stop offset="0%" stop-color="#fda4af"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </radialGradient>
+  </defs>
+</svg>
+
